@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<IDbConnection>(_ => new SqlConnection("(local)\\mssqllocaldb"));
+builder.Services.AddScoped<IDbConnection>(_ => new SqlConnection("server=localhost;database=BackendExamHub;Trusted_Connection=True;TrustServerCertificate=True;"));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
