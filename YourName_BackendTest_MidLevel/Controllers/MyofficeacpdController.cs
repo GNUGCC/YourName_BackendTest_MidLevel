@@ -1,4 +1,7 @@
+using Dapper;
+using System.Data;
 using Microsoft.AspNetCore.Mvc;
+
 using BackendTest_MidLevel.Models;
 using YourName_BackendTest_MidLevel;
 
@@ -6,34 +9,34 @@ namespace BackendTest_MidLevel.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class MyofficeacpdController : ControllerBase
+public class MyofficeacpdController(IDbConnection dbConnection) : ControllerBase
 {
     [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
+    public async Task<IEnumerable<MyOfficeAcpd>> Get()
     {
-        return default;
+        return await dbConnection.QueryAsync<MyOfficeAcpd>("select * from MyOffice_ACPD");
     }
 
     [HttpGet("{id}")]
-    public IEnumerable<WeatherForecast> GetById(string id)
+    public IEnumerable<MyOfficeAcpd> GetById(string id)
     {
         return default;
     }
 
     [HttpPost]
-    public IEnumerable<WeatherForecast> Post([FromBody] MyOfficeAcpd myOfficeAcpd)
-    {
+    public IEnumerable<MyOfficeAcpd> Post([FromBody] MyOfficeAcpd myOfficeAcpd)
+    {        
         return default;
     }
 
     [HttpPut("{id}")]
-    public IEnumerable<WeatherForecast> Put(string id, [FromBody] MyOfficeAcpd myOfficeAcpd)
+    public IEnumerable<MyOfficeAcpd> Put(string id, [FromBody] MyOfficeAcpd myOfficeAcpd)
     {
         return default;
     }
 
     [HttpDelete("{id}")]
-    public IEnumerable<WeatherForecast> Delete(string id)
+    public IEnumerable<MyOfficeAcpd> Delete(string id)
     {
         return default;
     }
