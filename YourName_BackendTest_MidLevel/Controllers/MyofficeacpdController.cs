@@ -115,7 +115,7 @@ WHERE ACPD_SID = @ACPD_SID
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id)
     {
-        var rows = await dbConnection.ExecuteAsync($"DELETE MyOffice_ACPD WHERE ACPD_SID = {id}");
+        var rows = await dbConnection.ExecuteAsync($"DELETE MyOffice_ACPD WHERE ACPD_SID = '{id}'");
         if (rows == 0) return NotFound();
         return Ok(new { success = true });
     }
