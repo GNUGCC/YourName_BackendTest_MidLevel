@@ -22,7 +22,7 @@ public class MyofficeacpdController(IDbConnection dbConnection) : ControllerBase
     [HttpGet("{id}")]
     public async Task<IEnumerable<MyOfficeAcpd>> GetById(string id)
     {
-        return await dbConnection.QueryAsync<MyOfficeAcpd>($"select * from MyOffice_ACPD where ACPD_NowID = {id}");
+        return await dbConnection.QueryAsync<MyOfficeAcpd>($"select * from MyOffice_ACPD where ACPD_SID = '{id}'");
     }
 
     [HttpPost]
